@@ -16,8 +16,8 @@ https://latexeditor.lagrida.com/
 # You can use ...
 1. Multiply, Division 
 - $$ab,\frac{a}{b}$$
-2. Summation, Integral, Product
-- $$\sum_{a}^{b}c,\int_{a}^{b}c,\prod_{a}^{b}c$$
+2. Summation, Integral, Product, Factorial
+- $$\sum_{a}^{b}c,\int_{a}^{b}c,\prod_{a}^{b}c,\a!$$
 3. Subscript, Exponent
 - $$a_{b}, a^{b}$$
 - So, it's possible to use infinite variable by using subscript!
