@@ -2,7 +2,7 @@ import functions
 import pyperclip
 
 functions.reset_var('t')
-
+# print(functions.get_minus(1, 2))
 targetNum = input("Write a number to approximate : ")
 try:
 	data = functions.getNumData(int(targetNum))
@@ -20,12 +20,33 @@ convertedExps = functions.convertIt(exps)
 
 functions.reset_var(input("Write a variable(length : 1) to make the formula. (ex : t) : "))
 
-tmp = []
-for a, d in zip(data["exponents"], convertedExps):
-	# print(a > 0, a, d)
-	v='' if a > 0 else '-'
-	tmp.append(functions.get_2()+"^{"+v+f"{functions.convertToText([a])[0]}"+"}")
-output = functions.get_plus(tmp)
+if input('Wanna another version? (y/n) : ') == "y":
+	tmp = []
+	for a, d in zip(data["exponents"], convertedExps):
+		# print(a > 0, a, d)
+		v='' if a > 0 else '-'
+		tmp.append("{"+functions.get_2()+"^{"+v+f"{functions.convertToText([a])[0]}"+r"}}")
+
+	out = []
+	for i in range(int(len(tmp)/2)):
+		# 2*i, 2*i+1
+		# print(tmp[2*i+1]+"^{-"+functions.get_1()+r"}")
+		out.append(functions.get_minus(tmp[2*i], "{"+tmp[2*i+1]+r"^{-"+functions.get_1()+r"}}"))
+		# breakpoint()
+		# print(out)
+		# exit()
+
+	if len(tmp) % 2 == 1:
+		# 나머지가 있으면
+		out.append(tmp[-1])
+	output = functions.get_plus(["{"+x+"}"for x in out])
+else:
+	tmp = []
+	for a, d in zip(data["exponents"], convertedExps):
+		# print(a > 0, a, d)
+		v='' if a > 0 else '-'
+		tmp.append(functions.get_2()+"^{"+v+f"{functions.convertToText([a])[0]}"+"}")
+	output = functions.get_plus(tmp)
 
 print()
 print(output)

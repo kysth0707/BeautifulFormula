@@ -4,10 +4,42 @@ def reset_var(targetText : str):
 	varNum = 0
 	varText = targetText
 
+# def get_var():
+# 	global varNum
+# 	varNum += 1
+# 	return varText + "_{" + varText*varNum + "}"
+
+import math
+
 def get_var():
 	global varNum
 	varNum += 1
-	return varText + "_{" + varText*varNum + "}"
+	mapSize = int(math.sqrt(varNum))+1
+	x,y=0,0
+	d=[[False for __ in range(mapSize)] for _ in range(mapSize)]
+
+	boxSize = 0
+	for _ in range(varNum):
+		d[y][x]=True
+		if x == 0 and y == boxSize:
+			boxSize += 1
+			x=boxSize
+			y=0
+		elif y < boxSize:
+			y += 1
+		elif y == boxSize:
+			x -= 1
+
+	output = ""
+	for k in d:
+		cnt = sum(k)
+		tmp = ""
+		if cnt > 0:
+			tmp = varText
+			for j in range(cnt-1):
+				tmp = varText+"_{"+tmp+"}"
+		output += tmp
+	return varText+"_{"+output+"}"
 
 def get_1():
 	return r"\frac{"+varText+r"}{"+varText+r"}"
@@ -52,7 +84,7 @@ def get_plus(d : list):
 	return get_ln_x("{"+output+"}")
 
 def get_minus(a,b):
-	return get_ln_x(r"\frac{"+get_e_x(a)+"}{"+get_e_x(b)+"}")
+	return "{"+get_ln_x(r"\frac{"+get_e_x(a)+"}{"+get_e_x(b)+"}")+"}"
 
 # ============== About converting data ==========
 
