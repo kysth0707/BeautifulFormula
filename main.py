@@ -20,7 +20,15 @@ convertedExps = functions.convertIt(exps)
 
 functions.reset_var(input("Write a variable(length : 1) to make the formula. (ex : t) : "))
 
-if input('Wanna another version? (y/n) : ') == "y":
+ver = input('Select version? (1/2/3) : ')
+if ver == "1":
+	tmp = []
+	for a, d in zip(data["exponents"], convertedExps):
+		# print(a > 0, a, d)
+		v='' if a > 0 else '-'
+		tmp.append(functions.get_2()+"^{"+v+f"{functions.convertToText([a])[0]}"+"}")
+	output = functions.get_plus(tmp)
+elif ver == "2":
 	tmp = []
 	for a, d in zip(data["exponents"], convertedExps):
 		# print(a > 0, a, d)
@@ -41,12 +49,18 @@ if input('Wanna another version? (y/n) : ') == "y":
 		out.append(tmp[-1])
 	output = functions.get_plus(["{"+x+"}"for x in out])
 else:
+	# $${\frac{\frac{\frac{1}{b}}{c}}{d}}^{-1}$$
 	tmp = []
 	for a, d in zip(data["exponents"], convertedExps):
 		# print(a > 0, a, d)
 		v='' if a > 0 else '-'
 		tmp.append(functions.get_2()+"^{"+v+f"{functions.convertToText([a])[0]}"+"}")
-	output = functions.get_plus(tmp)
+
+	output = functions.get_1()
+	for x in tmp:
+		output = r"\frac{"+output+"}{"+x+"}"
+	output = r"\left( "+output+r"\right)^{-"+functions.get_1()+"}"
+	
 
 print()
 print(output)

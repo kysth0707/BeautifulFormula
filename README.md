@@ -5,7 +5,10 @@ $$\text{This project is using }\LaTeX.$$
 $$\text{You can check if it works on the Online }\LaTeX\text{ Equation Editor.}$$   
 https://latexeditor.lagrida.com/
 
-# Test Images ( 3.25 by using t )
+# Test Images 
+- pi using e
+<img width="2171" height="630" alt="Image" src="https://github.com/user-attachments/assets/9b39330c-9909-4c25-af0a-2a0c6daf464f" />
+- 3.25 using t
 <img width="2106" height="503" alt="Image" src="https://github.com/user-attachments/assets/9f4af46e-06e7-4ad9-ad0b-ed44e5f722ab" />
 <img width="2157" height="358" alt="Image" src="https://github.com/user-attachments/assets/88ad18c0-8572-4890-a5e8-f297af7d680f" />
 

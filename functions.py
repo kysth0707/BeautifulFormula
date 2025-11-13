@@ -11,6 +11,7 @@ def reset_var(targetText : str):
 
 import math
 
+# new get_var method
 def get_var():
 	global varNum
 	varNum += 1
